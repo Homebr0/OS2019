@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 	{
 		if (!isdigit(argv[1][k]))
 		{
-			printf("Please enter an integer 0 - 47!");
+			printf("Please enter an integer 0 - 47!\n");
 			exit(0);
 		}
 	}
@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 	//validates that user input one argument
 	if (argc != 2)
 	{
-		printf("Invalid number of arguments!");
+		printf("Invalid number of arguments!\n");
 		exit(0);
 	}
 
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 	{
 		if (numThread < 0 || numThread > 47)
 		{
-			printf("Argument out of bounds! Please enter a number 0 - 47");
+			printf("Argument out of bounds! Please enter a number 0 - 47\n");
 			exit(0);
 		}
 	}

@@ -16,11 +16,11 @@ void SimpleThread(int which)
 			usleep(10);
 		}
 		val = SharedVariable;
-		printf("***Thread %d sees value %d\n", which, val);
+		printf("***Thread %d sees value %d\n", which + 1, val);
 		SharedVariable = val + 1;
 	}
 	val = SharedVariable;
-	printf("Thread %d sees final value %d\n", which, val);
+	printf("Thread %d sees final value %d\n", which + 1, val);
 }
 
 
