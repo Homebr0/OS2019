@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-int SharedVariable = 0;
+int SharedVariable = 0; //will be keeping track of the processes done by threads
 void SimpleThread(int which)
 {
 	int num, val;
@@ -30,7 +30,8 @@ int main(int argc, char *argv[])
 	
 		
 	int i, k;
-
+	
+	//validates input is an integer
 	for (k = 0; argv[1][k] != 0; k++)
 	{
 		
@@ -43,12 +44,14 @@ int main(int argc, char *argv[])
 	
 	int numThread = atoi(argv[1]);
 	
+	//validates for only one argument
 	if (argc != 2)
 	{
 		printf("Invalid number of arguments!\n");
 		exit(0);
 	}
 
+	//validates that the user input a valid amount of threads
 	for (k = 0; k < numThread; k++)
 	{
 		if (numThread < 1 || numThread > 200)
@@ -61,12 +64,15 @@ int main(int argc, char *argv[])
 	
 	pthread_t myThread[numThread];
 	int tid[numThread];
+	
+	//The threads are created
 	for(i = 0; i < numThread; i++)
 	{
 		tid[i] = i;
 		pthread_create(&myThread[i], NULL, SimpleThread, (void *) tid[i]);
 	}
-	
+
+	//The threads are joined	
 	for (i = 0; i < numThread; i++)
 	{
 		pthread_join(myThread[i], NULL);
